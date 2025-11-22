@@ -34,11 +34,12 @@ func main() {
 		},
 	}
 
-	timeAgent, err := llmagent.New(llmagent.Config{
-		Name:        "root_agent",
-		Model:       model,
-		Description: "A helpful agent.",
-		Instruction: "You are a helpful assistant. Answer the user's questions.",
+	routerAgent, err := llmagent.New(llmagent.Config{
+		Name:         "root_agent",
+		Model:        model,
+		Description:  "A helpful agent. Uses a router to route the user questions.",
+		Instruction:  "You are a helpful assistant. Answer the user's questions.",
+		OutputSchema: outputSchema,
 	})
 
 	if err != nil {
@@ -46,7 +47,7 @@ func main() {
 	}
 
 	config := &launcher.Config{
-		AgentLoader: agent.NewSingleLoader(timeAgent),
+		AgentLoader: agent.NewSingleLoader(routerAgent),
 	}
 
 	l := full.NewLauncher()
