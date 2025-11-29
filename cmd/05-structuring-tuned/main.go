@@ -18,7 +18,7 @@ func main() {
 
 	// 라우팅은 속도가 생명이므로 Flash 모델 권장 (예: gemini-1.5-flash)
 	model, err := gemini.NewModel(ctx,
-		"gemini-2.5-flash",
+		"gemini-3-pro-preview",
 		&genai.ClientConfig{
 			APIKey: os.Getenv("GOOGLE_API_KEY"),
 		})
@@ -59,7 +59,8 @@ func main() {
 
 	// [개선 2] Instruction: 역할을 '분류자(Classifier)'로 명확히 정의
 	instruction := `
-You are an intelligent request router. Your goal is NOT to answer the user's question directly, but to classify the intent and route it to the correct department.
+You are an intelligent request router. 
+Your goal is NOT to answer the user's question directly, but to classify the intent and route it to the correct department.
 
 Classify the input into one of the following destinations:
 1. 'technical_support': Questions about code, bugs, installation, or technical errors.
