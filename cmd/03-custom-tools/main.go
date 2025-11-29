@@ -20,7 +20,7 @@ func main() {
 	ctx := context.Background()
 
 	model, err := gemini.NewModel(ctx,
-		"gemini-2.5-flash-lite",
+		"gemini-3-pro-preview",
 		//"gemini-3-pro-preview",
 		&genai.ClientConfig{
 			APIKey: os.Getenv("GOOGLE_API_KEY"),
