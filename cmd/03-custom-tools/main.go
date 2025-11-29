@@ -33,9 +33,11 @@ func main() {
 		Name: "get_weather", Description: "Get weather for a city"},
 		getWeather,
 	)
+
 	sentimentTool, _ := functiontool.New(
 		functiontool.Config{Name: "analyze_sentiment", Description: "Analyze text sentiment"},
 		analyzeSentiment)
+
 	myAgent, err := llmagent.New(llmagent.Config{
 		Name:  "helper_agent",
 		Model: model,
